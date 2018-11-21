@@ -1,0 +1,96 @@
+﻿
+@{
+    ViewBag.Title = "Babysitter Cost Calculator";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h3>Babysitter Cost Calculator</h3>
+<h4>The calulcation is based on the following rules:</h4>
+<h4>
+    The babysitter:
+    <br />
+    <ul>
+        <li>starts no earlier than 5:00PM</li>
+        <li>leaves no later than 4:00AM</li>
+        <li>only babysits for one family per night</li>
+        <li>gets paid for full hours (no fractional hours)</li>
+        <li>should be prevented from mistakes when entering times (e.g. end time before start time, or outside of allowable work hours)</li>
+    </ul>
+    The job:
+    <br/>
+    <ul>
+        <li>Pays different rates for each family (based on bedtimes, kids and pets, etc...)</li>
+        <li>The time ranges are the same as the babysitter (5pm through 4am)</li>
+    </ul>
+    Deliverable:
+    <br/>
+    <ul>
+        <li>Calculate total pay, based on babysitter start and end time, and a family.</li>
+    </ul>
+</h4>
+<hr/>
+<div class="container">
+    <form>
+        <div class="row">
+            <div class="form-group col-md-2">
+                <label for="family">Select family:</label>
+                <select class="form-control" id="family">
+                    <option>A</option>
+                    <option>B</option>
+                    <option>C</option>
+                </select>
+            </div>
+
+            <div class="form-group col-md-10">
+                <label for="displayText"></label>
+                <input type="text" id="displayText" readonly="readonly" class="form-control"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="startTime">Start Time:</label>
+            <select class="form-control" id="startTime">
+                <option value="17">5:00PM</option>
+                <option value="18">6:00PM</option>
+                <option value="19">7:00PM</option>
+                <option value="20">8:00PM</option>
+                <option value="21">9:00PM</option>
+                <option value="22">10:00PM</option>
+                <option value="23">11:00PM</option>
+                <option value="24">12:00AM</option>
+                <option value="25">1:00AM</option>
+                <option value="26">2:00AM</option>
+                <option value="27">3:00AM</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="endTime">End Time:</label>
+            <select class="form-control" id="endTime">
+                <option value="18">6:00PM</option>
+                <option value="19">7:00PM</option>
+                <option value="20">8:00PM</option>
+                <option value="21">9:00PM</option>
+                <option value="22">10:00PM</option>
+                <option value="23">11:00PM</option>
+                <option value="24">12:00AM</option>
+                <option value="25">1:00AM</option>
+                <option value="26">2:00AM</option>
+                <option value="27">3:00AM</option>
+                <option value="28">4:00AM</option>
+            </select>
+        </div>
+
+        <div>
+            <button type="button" class="btn btn-primary" id="calculate">Calculate</button>
+        </div>
+        <br/>
+        <h3>
+            <label for="totalPay">Total Pay: $</label>
+            <input type="text" id="totalPay" readonly="readonly" class="form-control"/>
+        </h3>
+    </form>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/js")
+}
